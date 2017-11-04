@@ -9,7 +9,7 @@ import re
 #=========================================
 #----------The first nothing is 12345------
 # response = urllib.request.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php')
-response = urllib.request.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
+response = urllib.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
 #response = urllib2.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php')
 print response.info()
 html = response.read()
