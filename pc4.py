@@ -3,19 +3,20 @@ import urllib
 # import urllib2
 import re
 
-#=========================================
-#urllib may help. DON'T TRY ALL NOTHINGS, since it will never 
-#end. 400 times is more than enough
-#=========================================
-#----------The first nothing is 12345------
-# response = urllib.request.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php')
-response = urllib.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=12345')
-#response = urllib2.urlopen('http://www.pythonchallenge.com/pc/def/linkedlist.php')
-print response.info()
-html = response.read()
+URL = 'http://www.pythonchallenge.com/pc/def/linkedlist.php?nothing=%s'
 
-print html
-
-response.close()
+# =========================================
+# urllib may help. DON'T TRY ALL NOTHINGS, since it will never
+# end. 400 times is more than enough
+# =========================================
+# ----------The first nothing is 12345------
+nothing = '12345'
+for x in xrange(400):
+    response = urllib.urlopen(URL % nothing)
+    # print response.info()
+    html = response.read()
+    print html
+    nothing = html.split()[5]
+    response.close()
 
 raw_input()
