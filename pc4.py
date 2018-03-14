@@ -15,8 +15,10 @@ for x in xrange(400):
     response = urllib.urlopen(URL % nothing)
     # print response.info()
     html = response.read()
-    print html
-    nothing = html.split()[5]
     response.close()
-
-raw_input()
+    # print html
+    try:
+        nothing = html.split()[5]
+    except:
+        print html
+        break
